@@ -12,6 +12,14 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', uptime: process.uptime() });
 });
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    service: 'Ludo Multiplayer Backend',
+    uptime: process.uptime()
+  });
+});
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
